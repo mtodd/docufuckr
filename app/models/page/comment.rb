@@ -1,4 +1,4 @@
-class Page
+class Page::Comment
   include DataMapper::Resource
   
   ### Properties

@@ -31,7 +31,7 @@ Merb::Router.prepare do
   # resources :posts
   
   resources :pages do
-    
+    resources :comments
   end
   
   # Adds the required routes for merb-auth using the password slice
