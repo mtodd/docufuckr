@@ -22,6 +22,7 @@ We plan to provide functionality similar to the following:
 * rate a chunk of documentation as needs improvement and accurate etc,
   gets reset when changed to allow reevaluation
 * track what methods/classes have been updated recently (feed-like)
+* track changes of docs with Git?
 
 This list is just a prilimary scribbling of ideas.
 
