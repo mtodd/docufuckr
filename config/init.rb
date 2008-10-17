@@ -16,6 +16,8 @@ Merb::Config.use do |c|
 end
  
 Merb::BootLoader.before_app_loads do
+  include DataMapper::Types # why god why do I need to do this?
+  
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
 end
  
