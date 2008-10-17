@@ -2,12 +2,18 @@ class Pages < Application
   # provides :xml, :yaml, :js
   
   def index
-    @pages = Page.all
-    display @pages
+    @page = Page.by_path('index')
+    display @page
   end
   
-  def show(id)
-    @page = Page.get(id)
+  def show
+    @page = Page.by_path(params[:id])
+    raise NotFound unless @page
+    display @page
+  end
+  
+  def show_index
+    @page = Page.by_path(params[:path])
     raise NotFound unless @page
     display @page
   end

@@ -37,6 +37,12 @@ Merb::Router.prepare do
   # Adds the required routes for merb-auth using the password slice
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
   
+  # /files/examples/guesser/app/answers_rb.html
+  # fr_class_index
+  # fr_file_index
+  # fr_method_index
+  match('/:path(.:format)', :path => /fr_(file|class|method)_index/).to(:controller => 'pages', :action => 'show_index')
+  
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
   # routes, you may want to comment/remove this line to prevent
