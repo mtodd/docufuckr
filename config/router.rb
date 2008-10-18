@@ -32,6 +32,7 @@ Merb::Router.prepare do
   
   resources :pages do
     resources :comments
+    match("/pages/:path(.:format)", :path => /.*/).to(:controller => 'pages', :action => 'show')
   end
   
   # Adds the required routes for merb-auth using the password slice
@@ -41,7 +42,8 @@ Merb::Router.prepare do
   # fr_class_index
   # fr_file_index
   # fr_method_index
-  match('/:path(.:format)', :path => /fr_(file|class|method)_index/).to(:controller => 'pages', :action => 'show_index')
+  # /fr_(file|class|method)_index/
+  match('/:path(.:format)', :path => /.*/).to(:controller => 'pages', :action => 'show_index')
   
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
