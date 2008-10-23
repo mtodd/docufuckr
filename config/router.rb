@@ -27,6 +27,15 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
+  
+  # /files/examples/guesser/app/answers_rb.html
+  # fr_class_index
+  # fr_file_index
+  # fr_method_index
+  # /fr_(file|class|method)_index/
+  match("/pages/:type/:path(.:format)", :type => /(classes|files)/, :path => /.*/).to(:controller => 'pages', :action => 'show')
+  match('/:path(.:format)', :path => /.*/).to(:controller => 'pages', :action => 'show_index')
+  
   # RESTful routes
   # resources :posts
   
@@ -36,14 +45,6 @@ Merb::Router.prepare do
   
   # Adds the required routes for merb-auth using the password slice
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
-  
-  # /files/examples/guesser/app/answers_rb.html
-  # fr_class_index
-  # fr_file_index
-  # fr_method_index
-  # /fr_(file|class|method)_index/
-  match("/pages/:type/:path(.:format)", :type => /(classes|files)/, :path => /.*/).to(:controller => 'pages', :action => 'show')
-  match('/:path(.:format)', :path => /.*/).to(:controller => 'pages', :action => 'show_index')
   
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
