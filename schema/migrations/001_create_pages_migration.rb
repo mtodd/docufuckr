@@ -1,7 +1,8 @@
 migration 1, :create_pages  do
+  
   up do
     create_table :pages do
-      column :id, Serial
+      column :id, Integer, :serial => true
       column :path, String
       column :hash, String
       column :created_at, DateTime
@@ -12,4 +13,5 @@ migration 1, :create_pages  do
   down do
     drop_table :pages
   end
+  
 end

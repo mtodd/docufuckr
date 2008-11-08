@@ -1,4 +1,5 @@
 migration 4, :add_auth_columns_to_users  do
+  
   up do
     modify_table :users do
       add_column :crypted_password, String
@@ -12,4 +13,5 @@ migration 4, :add_auth_columns_to_users  do
       drop_column :salt
     end
   end
+  
 end

@@ -1,7 +1,8 @@
 migration 2, :create_users  do
+  
   up do
     create_table :users do
-      column :id, Serial
+      column :id, Integer, :serial => true
       column :login, String
       column :password, String
       column :login_at, DateTime
@@ -14,4 +15,5 @@ migration 2, :create_users  do
   down do
     drop_table :users
   end
+  
 end

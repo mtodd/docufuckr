@@ -1,7 +1,8 @@
 migration 3, :create_comments  do
+  
   up do
     create_table :comments do
-      column :id, Serial
+      column :id, Integer, :serial => true
       column :page_id, Integer
       column :user_id, Integer
       column :body, Text
@@ -13,4 +14,5 @@ migration 3, :create_comments  do
   down do
     drop_table :comments
   end
+  
 end
